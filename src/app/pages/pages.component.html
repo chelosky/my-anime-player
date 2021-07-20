@@ -1,0 +1,11 @@
+<!-- MAT-DRAWER PARA SEPARAR LAS PANTALLAS CON EL SIDEBAR -->
+<mat-drawer-container disableClose>
+    <!-- SIDEBAR -->
+    <mat-drawer mode="side" [opened]="true">
+        <app-sidebar></app-sidebar>
+    </mat-drawer>
+    <!-- PANTALLAS -->
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>
