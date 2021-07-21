@@ -1,31 +1,20 @@
 <!-- MENU LIST DEL SIDENAVE -->
-<mat-nav-list >
-    <h2 matSubheader>Menú</h2>
-
-    <app-menu-list-item *ngFor="let item of menu" [item]="item"></app-menu-list-item>
-
-    <!-- CONFIGURACIONES GENERALES DEL SISTEMA DISPONIBLES SOLO PARA EL ADMINISTRADOR DEL MISMO -->
-    <div>
-        <mat-divider></mat-divider>
-
-        <h2 matSubheader>Conf. Sistema</h2>
-        <!-- ACCESO AL MENU DE CONFIGURACIONES GLOBALES -->
-        <a mat-list-item routerLinkActive="router-link-active">
-            <mat-icon>tune</mat-icon>
-            Preferencias Globales
-        </a>
-        <!-- MODULO DE PERSONAS -->
-        <a mat-list-item routerLinkActive="router-link-active">
-            <mat-icon>group</mat-icon>
-            Administración Usuarios
-        </a>
+<mat-nav-list>
+    <div class="init-ctn">
+        <h1 *ngIf="sidebarService.openSideBar">My Anime List</h1>
+        <button mat-icon-button aria-label="menu-sidebar" (click)="changeSideBar()">
+            <mat-icon>menu</mat-icon>
+        </button>
     </div>
+    <h2 *ngIf="sidebarService.openSideBar" matSubheader>Menú</h2>
 
+    <app-menu-list-item *ngFor="let item of sidebarService.getMenu()" [item]="item"></app-menu-list-item>
+
+    <!-- OTROS -->
     <mat-divider></mat-divider>
-    <!-- CERRAR SESIÓN -->
-    <a mat-list-item >
-        <mat-icon>exit_to_app</mat-icon>
-        Cerrar Sesión
-    </a>
+
+    <h2 *ngIf="sidebarService.openSideBar" matSubheader>Extras</h2>
+    
+    <app-menu-list-item *ngFor="let item of sidebarService.getExtra()" [item]="item"></app-menu-list-item>
 
 </mat-nav-list>

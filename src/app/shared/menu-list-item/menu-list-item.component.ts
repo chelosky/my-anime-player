@@ -5,6 +5,7 @@ import { NavItem } from '../../models/interfaces/nav-item.interface';
 import { indicatorRotate } from '../../utils/animations';
 import { DomSanitizer } from "@angular/platform-browser";
 import { MatIconRegistry } from '@angular/material/icon';
+import { SidebarService } from '../../services/sidebar.service';
 
 @Component({
   selector: 'app-menu-list-item',
@@ -24,20 +25,11 @@ export class MenuListItemComponent {
   
   constructor(
     public router: Router,
-    private matIconRegistry: MatIconRegistry,
-    private domSanitizer: DomSanitizer
+    public sidebarService: SidebarService
   ) {
     if (this.depth === undefined) {
       this.depth = 0;
     }
-    this.matIconRegistry.addSvgIcon(
-      "ranma",
-      this.domSanitizer.bypassSecurityTrustResourceUrl("../../../assets/svg/ranma.svg")
-    );
-    this.matIconRegistry.addSvgIcon(
-      "goku",
-      this.domSanitizer.bypassSecurityTrustResourceUrl("../../../assets/svg/goku.svg")
-    );
   }
 
   onItemSelected(item: NavItem) {

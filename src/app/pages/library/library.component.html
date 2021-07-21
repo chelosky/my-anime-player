@@ -1,0 +1,5 @@
+<app-loading *ngIf="!loaded"></app-loading>
+
+<app-title-chapters [title]="title" (typeListChange)="changeTypeList($event)"></app-title-chapters>
+
+<app-chapters-container [data]="data" [typeList]="typeList"></app-chapters-container>

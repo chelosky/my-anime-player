@@ -1,0 +1,17 @@
+<!-- TITLE -->
+<div class="row">
+    <div class="col-sm-12 title-content">
+        <h1>{{title}}</h1>
+        <div class="btn-group">
+            <button *ngFor="let type of types"
+                [class]="type.class"
+                color="primary"
+                [disabled]="isCurrent(type.value)"
+                (click)="changeType(type.value)"
+                mat-raised-button>
+                <mat-icon>{{type.icon}}</mat-icon>
+            </button>
+        </div>
+    </div>
+</div>
+<hr>

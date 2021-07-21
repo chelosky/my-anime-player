@@ -5,9 +5,15 @@
     background-color: #EEEFF5;
 }
 
-mat-drawer{
-    min-width: 200px;
+.mat-drawer-open{
+    min-width: 250px;
     max-width: 325px;
+    overflow-x: hidden;
+}
+
+.mat-drawer-close{
+    min-width: 75px;
+    overflow-x: hidden;
 }
 
 mat-drawer-container{

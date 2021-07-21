@@ -1,0 +1,30 @@
+.title-content{
+    display: flex;
+    flex-direction: row;
+}
+
+h1{
+    line-height: 1.1;
+    color: inherit;
+}
+
+.title-content h1{
+    align-self: flex-start;
+    margin: auto 0;
+}
+
+.title-content .btn-group{
+    margin-left: auto;
+}
+
+.md-left {
+    border-radius: 10px 0 0 10px;
+    border-right: 1px solid rgba(230, 230, 230, 0.96);
+}
+.md-middle {
+    border-radius: 0;
+}
+.md-right {
+    border-radius: 0 10px 10px 0;
+    border-left: 1px solid rgba(230, 230, 230, 0.96);
+}

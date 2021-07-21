@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavItem } from 'src/app/models/interfaces/nav-item.interface';
+import { SidebarService } from '../../services/sidebar.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,65 +8,14 @@ import { NavItem } from 'src/app/models/interfaces/nav-item.interface';
 })
 export class SidebarComponent implements OnInit {
 
-  menu: NavItem[] = [];
-
-  constructor() { }
+  constructor(
+    public sidebarService: SidebarService
+  ) { }
 
   ngOnInit(): void {
-    this.menu = [
-      {
-        displayName: 'Inicio',
-        disabled: false,
-        iconName:'home',
-        route: '/',
-      },
-      {
-        displayName: 'Ranma',
-        disabled: false,
-        iconName:'ranma',
-        customIcon: true,
-        children: [
-          {
-            displayName: 'Capítulos',
-            disabled: false,
-            iconName:'ballot',
-            route: '/caja',
-          },
-          {
-            displayName: 'Ovas',
-            disabled: false,
-            iconName:'add_shopping_cart',
-            route: '/caja/create',
-          },
-          {
-            displayName: 'Películas',
-            disabled: false,
-            iconName:'add_shopping_cart',
-            route: '/caja/create',
-          }
-        ]
-      },
-      {
-        displayName: 'Dragon Ball Z',
-        disabled: false,
-        iconName:'goku',
-        customIcon: true,
-        children: [
-          {
-            displayName: 'Capítulos',
-            disabled: false,
-            iconName:'ballot',
-            route: '/caja',
-          },
-          {
-            displayName: 'Películas',
-            disabled: false,
-            iconName:'add_shopping_cart',
-            route: '/caja/create',
-          }
-        ]
-      }
-    ]
   }
 
+  changeSideBar(){
+    this.sidebarService.openSideBar = !this.sidebarService.openSideBar;
+  }
 }

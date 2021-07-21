@@ -2,9 +2,13 @@
     flex: 1 1 0%;
 }
   
-.routeIcon {
+.routeIconOpen{
     margin-right: 10px;
     font-size: 16pt;
+}
+
+.routeIconClose{
+    font-size: 20pt;
 }
   
 .menu-item-text {
