@@ -7,6 +7,9 @@ import { ChapterListComponent } from './chapter-list/chapter-list.component';
 import { ChapterItemComponent } from './chapter-item/chapter-item.component';
 import { ChapterGridComponent } from './chapter-grid/chapter-grid.component';
 import { ChaptersContainerComponent } from './chapters-container/chapters-container.component';
+import { SearchComponent } from './search/search.component';
+import { FormsModule } from '@angular/forms';
+import { PipesModule } from '../pipes/pipes.module';
 
 
 
@@ -17,7 +20,8 @@ import { ChaptersContainerComponent } from './chapters-container/chapters-contai
     ChapterListComponent,
     ChapterItemComponent,
     ChapterGridComponent,
-    ChaptersContainerComponent
+    ChaptersContainerComponent,
+    SearchComponent
   ],
   exports: [
     LoadingComponent,
@@ -25,11 +29,14 @@ import { ChaptersContainerComponent } from './chapters-container/chapters-contai
     ChapterListComponent,
     ChapterItemComponent,
     ChapterGridComponent,
-    ChaptersContainerComponent
+    ChaptersContainerComponent,
+    SearchComponent
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    PipesModule
   ]
 })
 export class ComponentsModule { }

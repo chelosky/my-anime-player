@@ -1,23 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ANIMES_INFO, CHAPTER_GRID_TYPE } from '../../constants';
 import { AnimeService } from '../../services/anime.service';
 import { ChapterObject } from '../../models/interfaces/chapter-object.interface';
-import { Chapter } from '../../models/chapter.model';
-import { Ova } from '../../models/ova.model';
-import { Movie } from '../../models/movie.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-library',
   templateUrl: './library.component.html',
   styleUrls: ['./library.component.css']
 })
-export class LibraryComponent implements OnInit {
+export class LibraryComponent implements OnInit, OnDestroy{
 
   title: string = '';
+  filterText: string = '';
+  filterProps: string[] = [ 'id', 'code', 'name', 'season', 'season_name' ];
   typeList: number = CHAPTER_GRID_TYPE;
   data: ChapterObject[]= [];
   loaded: boolean = false;
+
+  paramsChangedSub$ = new Subscription();
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -25,11 +27,16 @@ export class LibraryComponent implements OnInit {
   ) {
   }
 
-  ngOnInit(): void {    
-    this.getInformation();
+
+  ngOnInit(): void { 
+    this.paramsChangedSub$ = this.activatedRoute.params.subscribe((params) => {
+      this.getInformation();
+    });
   }
 
   async getInformation(){
+    this.loaded = false;
+    this.filterText = '';
     // {path: "chapters", data: {…}, component: ƒ}
     let routeConfigPath = this.activatedRoute.snapshot.routeConfig.path;
     // {title: "Capítulos"}
@@ -39,11 +46,17 @@ export class LibraryComponent implements OnInit {
     this.title = `${routeData.title} ${ANIMES_INFO[routeParams.anime].name}`;
     this.data = await this.animeService.getAnimeData(routeParams.anime, routeConfigPath).toPromise().catch((err) => console.log(err));
     this.loaded = true;
-    console.log(this.data);
   }
 
   changeTypeList(event: number){
     this.typeList = event;
   }
 
+  changeFilterText(event: string){
+    this.filterText = event;
+  }
+
+  ngOnDestroy(): void {
+    this.paramsChangedSub$.unsubscribe();
+  }
 }

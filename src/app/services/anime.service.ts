@@ -29,6 +29,12 @@ export class AnimeService {
     private dataService: DataService
   ) { }
 
+  /**
+   * 
+   * @param anime_data 
+   * @param prop can be chapters, ovas or movies
+   * @returns 
+   */
   getAnimeData(anime_data: string, prop: string): Observable<any>{
     return this.dataService.get(`${CONSTANTS.API}${CONSTANTS.ANIMES_INFO[anime_data].endpoint}`)
     .pipe(

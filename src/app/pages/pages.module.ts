@@ -9,6 +9,7 @@ import { FavoritesComponent } from './favorites/favorites.component';
 import { InformationComponent } from './information/information.component';
 import { LibraryComponent } from './library/library.component';
 import { ComponentsModule } from '../components/components.module';
+import { PipesModule } from '../pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ComponentsModule } from '../components/components.module';
     SharedModule,
     ComponentsModule,
     MaterialModule,
-    IconSvgModule
+    IconSvgModule,
+    PipesModule
   ]
 })
 export class PagesModule { }

@@ -13,7 +13,9 @@ export class AppComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    this.onResize(0);
+    setTimeout(() => {
+      this.onResize(0);
+    }, 0);
   }
 
   @HostListener('window:resize', ['$event'])

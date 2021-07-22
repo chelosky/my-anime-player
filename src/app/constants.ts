@@ -19,6 +19,7 @@ export const ANIMES_INFO = {
     }
 }
 
+// CUSTOM ICONS
 export const SVG_ICONS: CustomSvgIcon[] = [
     {
         name: 'ranma',
@@ -30,5 +31,25 @@ export const SVG_ICONS: CustomSvgIcon[] = [
     }
 ]
 
+// TYPE OF LISTER CHAPTERS
 export const CHAPTER_LIST_TYPE = 0;
 export const CHAPTER_GRID_TYPE = 1;
+
+// DEBOUNCE TIMER FOR SUBSCRIPTION
+export const DEBOUNCE_TIME_PREDET_MS = 300;
+
+// DIMENSIONES WINDOWS PX
+export const DIMENSIONS: any = {
+    xs: 576,
+    sm: 768,
+    md: 992,
+    lg: 1200,
+    xl: 1400
+}
+
+// TYPE MODE SIDEBAR
+export const SIDEBAR_MODE: any = {
+    side: 'side',
+    over: 'over',
+    push: 'push'
+}

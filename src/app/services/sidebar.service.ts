@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { NavItem } from '../models/interfaces/nav-item.interface';
+import { SIDEBAR_MODE, DIMENSIONS } from '../constants';
+import { ResizeService } from './resize.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +9,8 @@ import { NavItem } from '../models/interfaces/nav-item.interface';
 export class SidebarService {
 
   openSideBar: boolean = true;
+
+  modeSideBar: string = SIDEBAR_MODE.side;
 
   private menu: NavItem[] = [
     {
@@ -78,7 +82,17 @@ export class SidebarService {
     }
   ];
 
-  constructor() {}
+  constructor(
+    private resizeService: ResizeService
+  ) {}
+
+  changeModeSideBar(){
+    if(this.resizeService.currentSize <= DIMENSIONS.sm && this.openSideBar){
+      this.modeSideBar = SIDEBAR_MODE.over;
+    }else{
+      this.modeSideBar = SIDEBAR_MODE.side;
+    }
+  }
 
   getMenu(): NavItem[]{
     return this.menu;

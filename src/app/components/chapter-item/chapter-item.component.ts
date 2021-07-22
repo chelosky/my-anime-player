@@ -12,7 +12,6 @@ export class ChapterItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.item.getInformation())
   }
 
 }

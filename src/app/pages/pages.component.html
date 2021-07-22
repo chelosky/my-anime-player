@@ -1,16 +1,18 @@
 <!-- MAT-DRAWER PARA SEPARAR LAS PANTALLAS CON EL SIDEBAR -->
-<mat-drawer-container autosize>
+<mat-drawer-container autosize="true">
     <!-- SIDEBAR -->
     <mat-drawer 
     [class.mat-drawer-open]="sidebarService.openSideBar"
     [class.mat-drawer-close]="!sidebarService.openSideBar"
-    mode="side" 
-    [opened]="true" 
+    [mode]="this.sidebarService.modeSideBar" 
+    opened
     disableClose>
         <app-sidebar></app-sidebar>
     </mat-drawer>
     <!-- PANTALLAS -->
-    <mat-drawer-content>
+    <mat-drawer-content 
+    [class.mat-drawer-content-over]="true"
+    >
         <router-outlet></router-outlet>
     </mat-drawer-content>
 </mat-drawer-container>

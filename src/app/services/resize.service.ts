@@ -6,13 +6,15 @@ import { Subject, Observable } from 'rxjs';
 })
 export class ResizeService {
 
-  currentSize$: Subject<number|string> = new Subject<number|string>();
+  currentSize: number | string = 0;
+  private currentSize$: Subject<number|string> = new Subject<number|string>();
 
   getSize(): Observable<number|string> {
     return this.currentSize$.asObservable();
   }
 
   setSize(size: number|string): void {
-   this.currentSize$.next(size);
+    this.currentSize = size;
+    this.currentSize$.next(size);
   }
 }

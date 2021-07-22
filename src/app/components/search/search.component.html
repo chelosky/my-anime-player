@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-sm-12 mb-3">
+    <form class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">
+          <span class="material-icons">
+              search
+          </span>            
+        </span>
+      </div>
+      <input 
+        name="search-inp" 
+        type="text" 
+        class="form-control" 
+        [placeholder]="placeHolder" 
+        aria-label="Search"
+        [ngModel]='valueForm'
+        (ngModelChange)='valueModelChanged.next($event)'
+      >
+    </form>
+  </div>
+</div>
