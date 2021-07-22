@@ -14,14 +14,14 @@ import { Chapter } from '../models/chapter.model';
 export class AnimeService {
 
   private generateObject: any = {
-    chapters: (item: ChapterObject) => {
-      return new Chapter(item.id, item.code, item.name, item.url, item.thumbnail, item.season, item.season_name);
+    chapters: (item: ChapterObject, anime: string) => {
+      return new Chapter(item.id, item.code, item.name, item.url, item.thumbnail, item.season, item.season_name, anime);
     },
-    movies: (item: ChapterObject) => {
-      return new Movie(item.id, item.code, item.name, item.url, item.thumbnail);
+    movies: (item: ChapterObject, anime: string) => {
+      return new Movie(item.id, item.code, item.name, item.url, item.thumbnail, anime);
     },
-    ovas: (item: ChapterObject) => {
-      return new Ova(item.id, item.code, item.name, item.url, item.thumbnail);
+    ovas: (item: ChapterObject, anime: string) => {
+      return new Ova(item.id, item.code, item.name, item.url, item.thumbnail, anime);
     }
   }
 
@@ -41,11 +41,33 @@ export class AnimeService {
       map((resp: any) => {
         const data = CONSTANTS.ANIMES_INFO[anime_data].get(resp);
         const dataProp: any[] = data[prop];
-        const dataObject: ChapterObject[] = dataProp.map((item: any) => this.generateObject[prop](item));
+        const dataObject: ChapterObject[] = dataProp.map((item: any) => this.generateObject[prop](item, anime_data));
         return dataObject;
       })
     )
   }
 
-
+  /**
+   * 
+   * All the mp4 are in a mediafire storage
+   * so we need the direct link for the videoplayer
+   * 
+   * From:
+   *        https://www.mediafire.com/file/d99179tmttkp6ws/010-P-chan-eres-un-picaro.mp4/file
+   * To:
+   *        https://download1487.mediafire.com/82j6rjj781cg/d99179tmttkp6ws/010-P-chan-eres-un-picaro.mp4
+   * @param data 
+   * @returns 
+   */
+  generateDirectDownloadLink(data: ChapterObject){
+    return this.dataService.post(`${CONSTANTS.API}download`,
+    {
+      url: data.url
+    })
+    .pipe(
+      map(resp => {
+        return resp['body'];
+      })
+    )
+  }
 }

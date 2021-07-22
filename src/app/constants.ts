@@ -6,15 +6,26 @@ export const ANIMES_INFO = {
     ranma: {
         name: 'Ranma ½',
         endpoint: 'ranma/data',
-        get: (data) => {
+        get: (data: any) => {
             return data['body']['data'];
+        },
+        validName: (text: string): string => {
+            //  001-Un-extraño-viene-de-chica.mp4 => [ 001-Un-extraño-viene-de-chica , mp4 ] 
+            let nameExtensionSplit = text.split('.')
+            // 001-Un-extraño-viene-de-chica => [Un,extraño,viene,de,chica]
+            let nameCorrelativeSplit = nameExtensionSplit[0].split('-').slice(1);
+            return nameCorrelativeSplit.join(' ');
         }
     },
     dbz: {
         name: 'Dragon Ball Z',
         endpoint: 'dbz/data',
-        get: (data) => {
+        get: (data: any) => {
             return data['body'];
+        },
+        validName: (text: string): string => {
+            // Aparece un mini Goku, su nombre es Gohan
+            return text;
         }
     }
 }

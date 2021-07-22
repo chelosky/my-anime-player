@@ -10,6 +10,7 @@ export class Chapter implements ChapterObject{
         public thumbnail: string,
         public season: number,
         public season_name?: string,
+        public anime?: string,
     ){
         this.id = id;
         this.code = code;
@@ -18,6 +19,7 @@ export class Chapter implements ChapterObject{
         this.thumbnail = thumbnail;
         this.season = season;
         this.season_name = season_name;
+        this.anime = anime;
     }
 
     getInformation(): string{

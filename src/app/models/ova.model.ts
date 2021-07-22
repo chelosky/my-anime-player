@@ -6,14 +6,15 @@ export class Ova implements ChapterObject{
         public code: string,
         public name: string,
         public url: string,
-        public thumbnail: string
-
+        public thumbnail: string,
+        public anime?: string
     ){
         this.id = id;
         this.code = code;
         this.name = name;
         this.url = url;
         this.thumbnail = thumbnail;
+        this.anime = anime;
     }
 
     getInformation(): string {

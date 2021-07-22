@@ -12,6 +12,11 @@ import { FormsModule } from '@angular/forms';
 import { PipesModule } from '../pipes/pipes.module';
 
 
+import {VgCoreModule} from '@videogular/ngx-videogular/core';
+import {VgControlsModule} from '@videogular/ngx-videogular/controls';
+import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
+import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
+import { VideoPlayerComponent } from './video-player/video-player.component';
 
 @NgModule({
   declarations: [
@@ -21,14 +26,12 @@ import { PipesModule } from '../pipes/pipes.module';
     ChapterItemComponent,
     ChapterGridComponent,
     ChaptersContainerComponent,
-    SearchComponent
+    SearchComponent,
+    VideoPlayerComponent
   ],
   exports: [
     LoadingComponent,
     TitleChaptersComponent,
-    ChapterListComponent,
-    ChapterItemComponent,
-    ChapterGridComponent,
     ChaptersContainerComponent,
     SearchComponent
   ],
@@ -36,7 +39,14 @@ import { PipesModule } from '../pipes/pipes.module';
     CommonModule,
     MaterialModule,
     FormsModule,
-    PipesModule
+    PipesModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule
+  ],
+  entryComponents: [
+    VideoPlayerComponent
   ]
 })
 export class ComponentsModule { }
