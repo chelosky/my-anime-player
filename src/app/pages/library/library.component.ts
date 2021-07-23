@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ANIMES_INFO, CHAPTER_GRID_TYPE } from '../../constants';
+import { ANIMES_INFO, CHAPTER_GRID_TYPE } from '../../constants/general.constants';
 import { AnimeService } from '../../services/anime.service';
 import { ChapterObject } from '../../models/interfaces/chapter-object.interface';
 import { Subscription } from 'rxjs';

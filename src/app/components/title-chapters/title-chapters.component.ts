@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit , Output} from '@angular/core';
-import { CHAPTER_GRID_TYPE, CHAPTER_LIST_TYPE } from 'src/app/constants';
+import { CHAPTER_GRID_TYPE, CHAPTER_LIST_TYPE } from 'src/app/constants/general.constants';
 
 @Component({
   selector: 'app-title-chapters',

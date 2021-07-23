@@ -1,4 +1,4 @@
-import { CustomSvgIcon } from './models/interfaces/custom-svg-icon.interface';
+import { CustomSvgIcon } from '../models/interfaces/custom-svg-icon.interface';
 
 export const API = 'http://192.241.138.102:1337/'
 

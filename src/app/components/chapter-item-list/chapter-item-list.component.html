@@ -1,0 +1,25 @@
+<div  class="list-group-item">
+    <div [id]="item.id" class="list-item">
+        <div class="metadata">
+            <div class="image">
+                <app-ribbon-corner *ngIf="watched" [title]="'VISTO'"></app-ribbon-corner>
+                <img class="img-item" [src]="item.thumbnail" [alt]="item.name">
+            </div>
+            <div class="information">
+                <span class="text-post">{{item.name | cleanChapterName: item.anime}}</span>
+                <span class="text-muted text-xs">{{item.getInformation()}}</span>
+            </div>
+        </div>
+        <div class="control">
+            <div class="btns">
+                <span class="material-icons play" (click)="play()">
+                    play_arrow
+                </span>
+                <span class="material-icons favorite" [class.heart]="favorite" (click)="setFavorite()">
+                    {{ favorite ? 'favorite' : 'favorite_outline'}}
+                </span>
+            </div>
+            <app-switch [status]="watched" (statusChange)="setWatched()"></app-switch>
+        </div>
+    </div>
+</div>

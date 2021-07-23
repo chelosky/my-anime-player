@@ -1,0 +1,25 @@
+<div [id]="item.id" class="item-post">
+    <div class="cover">
+        <app-ribbon-corner  *ngIf="watched" [title]="'VISTO'"></app-ribbon-corner>
+        <div class="overlay overlay-blur">
+            <span class="material-icons play" (click)="play()">
+                play_arrow
+            </span>
+            <span class="material-icons favorite" [class.heart]="favorite" (click)="setFavorite()">
+                {{ favorite ? 'favorite' : 'favorite_outline'}}
+            </span>
+        </div>
+        <img class="img-border" [src]="item.thumbnail" [alt]="item.name" width="150" height="150">
+    </div>
+    <div class="info">
+        <div class="text-post">
+            {{item.name | cleanChapterName: item.anime}}
+        </div>
+        <div class="info-post">
+            <div class="text-muted text-xs text-post">
+                {{item.getInformation()}}
+            </div>
+            <app-switch [status]="watched" (statusChange)="setWatched()"></app-switch>
+        </div>
+    </div>
+</div>

@@ -26,15 +26,14 @@
         </video>
     </vg-player>
 </div>
-<!-- <button class="mat-raised-button" >Anterior</button> -->
 <div mat-dialog-actions class="btn-final">  
-    <button mat-icon-button>
+    <button mat-icon-button [class.hide-btn]="!previous" (click)="goPrevious()">
         <mat-icon>keyboard_arrow_left</mat-icon>
     </button> 
-    <button mat-icon-button [color]="favorite ? 'warn' : ''" (click)="setFavorite()">
+    <button mat-icon-button [color]="favorite ? 'warn' : ''" (click)="handleFavorite()">
         <mat-icon>{{ favorite ? 'favorite' : 'favorite_outline'}}</mat-icon>
     </button> 
-    <button mat-icon-button>
+    <button mat-icon-button [class.hide-btn]="!next" (click)="goNext()">
         <mat-icon>keyboard_arrow_right</mat-icon>
     </button> 
 </div> 

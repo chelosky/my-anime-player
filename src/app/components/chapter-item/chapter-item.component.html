@@ -1,21 +1,20 @@
-<div [id]="item.id" class="item-post">
-    <div class="cover">
-        <div class="overlay overlay-blur">
-            <span class="material-icons play" (click)="play()">
-                play_arrow
-            </span>
-            <span class="material-icons favorite" [class.heart]="favorite" (click)="setFavorite()">
-                {{ favorite ? 'favorite' : 'favorite_outline'}}
-            </span>
-        </div>
-        <img class="img-border" [src]="item.thumbnail" [alt]="item.name" width="150" height="150">
-    </div>
-    <div class="info">
-        <div class="text-post">
-            {{item.name | cleanChapterName: item.anime}}
-        </div>
-        <div class="text-muted text-xs text-post">
-            {{item.getInformation()}}
-        </div>
-    </div>
+<div [ngSwitch]="type" class="item-cont">
+    <app-chapter-item-list
+        *ngSwitchCase="getList()" 
+        [item]="item"
+        [favorite]="favorite"
+        [watched]="watched"
+        (playEvent)="play()" 
+        (favoriteEvent)="handleFavorite($event)" 
+        (watchedEvent)="handleWatched($event)">
+    </app-chapter-item-list>
+    <app-chapter-item-grid 
+        *ngSwitchCase="getGrid()" 
+        [item]="item"
+        [favorite]="favorite"
+        [watched]="watched"
+        (playEvent)="play()" 
+        (favoriteEvent)="handleFavorite($event)" 
+        (watchedEvent)="handleWatched($event)">
+    </app-chapter-item-grid>
 </div>

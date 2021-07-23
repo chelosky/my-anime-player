@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CHAPTER_GRID_TYPE } from 'src/app/constants/general.constants';
 import { ChapterObject } from '../../models/interfaces/chapter-object.interface';
 
 @Component({
@@ -9,9 +10,14 @@ import { ChapterObject } from '../../models/interfaces/chapter-object.interface'
 export class ChapterGridComponent implements OnInit {
 
   @Input() data: ChapterObject[] = [];
-  constructor() { }
+  constructor(
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  getType(){
+    return CHAPTER_GRID_TYPE;
   }
 
 }

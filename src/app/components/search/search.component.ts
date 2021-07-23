@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { DEBOUNCE_TIME_PREDET_MS } from '../../constants';
+import { DEBOUNCE_TIME_PREDET_MS } from '../../constants/general.constants';
 
 @Component({
   selector: 'app-search',

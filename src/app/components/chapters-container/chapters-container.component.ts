@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CHAPTER_LIST_TYPE, CHAPTER_GRID_TYPE } from '../../constants';
+import { CHAPTER_LIST_TYPE, CHAPTER_GRID_TYPE } from '../../constants/general.constants';
 import { Movie } from '../../models/movie.model';
 import { Chapter } from '../../models/chapter.model';
 import { Ova } from '../../models/ova.model';

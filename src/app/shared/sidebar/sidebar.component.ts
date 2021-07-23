@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { SidebarService } from '../../services/sidebar.service';
 import { ResizeService } from '../../services/resize.service';
-import { DIMENSIONS, SIDEBAR_MODE } from '../../constants';
+import { DIMENSIONS, SIDEBAR_MODE } from '../../constants/general.constants';
 
 @Component({
   selector: 'app-sidebar',

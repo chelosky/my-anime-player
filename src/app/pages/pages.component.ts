@@ -25,6 +25,10 @@ export class PagesComponent implements OnInit, OnDestroy {
     this.sidebarService.changeModeSideBar();
   }
 
+  test(){
+    this.sidebarService.clickOutsideMobile();
+  }
+
   ngOnDestroy(): void {
     this.subResize$.unsubscribe();
   }

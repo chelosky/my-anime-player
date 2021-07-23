@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NavItem } from '../models/interfaces/nav-item.interface';
-import { SIDEBAR_MODE, DIMENSIONS } from '../constants';
+import { SIDEBAR_MODE, DIMENSIONS } from '../constants/general.constants';
 import { ResizeService } from './resize.service';
 
 @Injectable({
@@ -92,6 +92,11 @@ export class SidebarService {
     }else{
       this.modeSideBar = SIDEBAR_MODE.side;
     }
+  }
+
+  clickOutsideMobile(){
+    this.openSideBar = false;
+    this.changeModeSideBar();
   }
 
   getMenu(): NavItem[]{

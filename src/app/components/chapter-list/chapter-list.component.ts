@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ChapterObject } from '../../models/interfaces/chapter-object.interface';
+import { CHAPTER_LIST_TYPE } from '../../constants/general.constants';
 
 @Component({
   selector: 'app-chapter-list',
@@ -14,4 +15,7 @@ export class ChapterListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getType(){
+    return CHAPTER_LIST_TYPE;
+  }
 }

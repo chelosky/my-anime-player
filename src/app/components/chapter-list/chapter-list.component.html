@@ -1,5 +1,5 @@
 <div class="row list-group list-group-lg">
-    <div *ngFor="let item of data" class="list-group-item">
-
+    <div *ngFor="let item of data">
+        <app-chapter-item [item]="item" [type]="getType()"></app-chapter-item>
     </div>
 </div>
