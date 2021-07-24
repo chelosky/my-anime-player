@@ -3,7 +3,7 @@ import { ButtonGroup } from '../models/interfaces/button-group.interface';
 
 export const APP_NAME = 'MY ANIME LIST';
 
-export const API = 'http://192.241.138.102:1337/'
+export const API = 'https://www.cheloskyapi.xyz/'
 
 export const ANIMES_INFO = {
     ranma: {
