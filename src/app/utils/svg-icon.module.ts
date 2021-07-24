@@ -29,7 +29,7 @@ export class IconSvgModule  {
   }
 
   getAssetsRelativePath(file: string){
-    return `../../assets/svg/${file}`;
+    return `assets/svg/${file}`;
   }
 
 }
