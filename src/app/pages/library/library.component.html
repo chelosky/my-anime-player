@@ -2,7 +2,7 @@
 
 
 <div *ngIf="loaded">
-    <app-title-chapters [title]="title" (typeListChange)="changeTypeList($event)"></app-title-chapters>
+    <app-title-chapters [title]="title" [currentType]="typeList" (typeListChange)="changeTypeList($event)"></app-title-chapters>
 
     <app-search (valueChange)="filterText = $event"></app-search>
 

@@ -1,20 +1,24 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import { ChapterObject } from '../../models/interfaces/chapter-object.interface';
 import { VideoPlayerComponent } from '../video-player/video-player.component';
 import { CHAPTER_GRID_TYPE, CHAPTER_LIST_TYPE } from '../../constants/general.constants';
 import { WatchedService } from '../../services/watched.service';
 import { FavoriteService } from '../../services/favorite.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-chapter-item',
   templateUrl: './chapter-item.component.html',
   styleUrls: ['./chapter-item.component.css']
 })
-export class ChapterItemComponent implements OnInit {
+export class ChapterItemComponent implements OnInit, OnDestroy{
 
   favorite: boolean;
   watched: boolean;
+
+  subFavorite$: Subscription;
+  subWatched$: Subscription;
 
   @Input() item: ChapterObject;
   @Input() type: number = CHAPTER_GRID_TYPE;
@@ -25,6 +29,8 @@ export class ChapterItemComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.subFavorite$ = this.favoriteService.getHandle().subscribe((res) => this.getCurrentState());
+    this.subWatched$ = this.watchedService.getHandle().subscribe((res) => this.getCurrentState());
     this.getCurrentState();
   }
 
@@ -71,6 +77,11 @@ export class ChapterItemComponent implements OnInit {
 
   getList(){
     return CHAPTER_LIST_TYPE;
+  }
+
+  ngOnDestroy(): void {
+    if(this.subFavorite$) this.subFavorite$.unsubscribe();
+    if(this.subWatched$) this.subWatched$.unsubscribe();
   }
 
 }

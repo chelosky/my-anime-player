@@ -1,4 +1,5 @@
 import { ChapterObject } from './interfaces/chapter-object.interface';
+import { CHAPTER_OBJECT_TYPES } from '../constants/general.constants';
 export class Ova implements ChapterObject{
 
     constructor(
@@ -19,5 +20,9 @@ export class Ova implements ChapterObject{
 
     getInformation(): string {
         return `NUM: ${this.id}`;
+    }
+
+    getType(): string{
+        return CHAPTER_OBJECT_TYPES.ova;
     }
 }

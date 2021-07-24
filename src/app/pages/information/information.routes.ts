@@ -6,7 +6,7 @@ export const INFORMATION_ROUTES: Routes = [
         path: '',
         component: InformationComponent,
         data: {
-            title: 'Information'
+            title: 'Información'
         }
     },
     {

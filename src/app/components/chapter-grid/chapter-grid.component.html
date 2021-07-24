@@ -1,5 +1,3 @@
 <div class="row">
-    <div *ngFor="let item of data" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-        <app-chapter-item [item]="item" [type]="getType()"></app-chapter-item>
-    </div>
+    <app-chapter-item *ngFor="let item of data" class="col-xs-12 col-sm-6 col-md-4 col-lg-3" [item]="item" [type]="getType()"></app-chapter-item>
 </div>

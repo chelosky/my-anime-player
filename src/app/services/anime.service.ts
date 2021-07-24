@@ -30,7 +30,7 @@ export class AnimeService {
   constructor(
     private dataService: DataService
   ) { }
-
+  
   /**
    * 
    * @param anime_data 

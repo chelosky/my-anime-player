@@ -79,6 +79,12 @@ export class SidebarService {
       disabled: false,
       iconName:'information',
       route: '/information',
+    },
+    {
+      displayName: 'Configuración',
+      disabled: false,
+      iconName:'settings',
+      route: '/settings',
     }
   ];
 

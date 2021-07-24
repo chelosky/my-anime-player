@@ -56,8 +56,10 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
   }
 
   playVideo() {
-    this.api.play();
-    this.watchedService.setWatched(this.data.item);
+    if(this.api){
+      this.api.play();
+      this.watchedService.setWatched(this.data.item);
+    }
   }
 
   getCurrentState(){
@@ -77,14 +79,18 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
     const {previous, next} = this.videoPlayerService.getNextPrevious(this.data.item);
     this.previous = previous;
     this.next = next;
+    console.log(this.previous);
+    console.log(this.next);
   }
 
   goNext(){
+    console.log('NEXT');
     this.data.item = this.next;
     this.getInformation();
   }
-
+  
   goPrevious(){
+    console.log('PREVIOUS');
     this.data.item = this.previous;
     this.getInformation();
   }

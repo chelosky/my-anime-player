@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { AnimeService } from './anime.service';
 import { ChapterObject } from '../models/interfaces/chapter-object.interface';
 
 @Injectable({
@@ -7,12 +6,33 @@ import { ChapterObject } from '../models/interfaces/chapter-object.interface';
 })
 export class VideoPlayerService {
 
+  private videoList: ChapterObject[] = [];
+
   constructor(
-    private animeService: AnimeService
   ) { }
 
   private getCurrentIndex(current: ChapterObject){
-    return this.animeService.animeList.findIndex((item: ChapterObject) => current.id == item.id );
+    return this.videoList.findIndex((item: ChapterObject) => current.code == item.code && current.anime == item.anime);
+  }
+
+  private getNext(current: ChapterObject): ChapterObject{
+    const currentIndex: number = this.getCurrentIndex(current);
+    if(currentIndex != -1 && currentIndex < this.videoList.length){
+      return this.videoList[currentIndex + 1];
+    }
+    return null;
+  }
+
+  private getPrevious(current: ChapterObject){
+    const currentIndex: number = this.getCurrentIndex(current);
+    if(currentIndex != -1 && currentIndex > 0){
+      return this.videoList[currentIndex - 1];
+    }
+    return null;
+  }
+
+  setVideoList(list: ChapterObject[]){
+    this.videoList = list;
   }
 
   getNextPrevious(current: ChapterObject){
@@ -22,19 +42,5 @@ export class VideoPlayerService {
     };
   }
 
-  getNext(current: ChapterObject): ChapterObject{
-    const currentIndex: number = this.getCurrentIndex(current);
-    if(currentIndex != -1 && currentIndex < this.animeService.animeList.length){
-      return this.animeService.animeList[currentIndex + 1];
-    }
-    return null;
-  }
-
-  getPrevious(current: ChapterObject){
-    const currentIndex: number = this.getCurrentIndex(current);
-    if(currentIndex != -1 && currentIndex > 0){
-      return this.animeService.animeList[currentIndex - 1];
-    }
-    return null;
-  }
+  
 }

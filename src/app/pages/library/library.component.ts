@@ -4,6 +4,8 @@ import { ANIMES_INFO, CHAPTER_GRID_TYPE } from '../../constants/general.constant
 import { AnimeService } from '../../services/anime.service';
 import { ChapterObject } from '../../models/interfaces/chapter-object.interface';
 import { Subscription } from 'rxjs';
+import { VideoPlayerService } from '../../services/video-player.service';
+import { SettingsService } from '../../services/settings.service';
 
 @Component({
   selector: 'app-library',
@@ -23,12 +25,15 @@ export class LibraryComponent implements OnInit, OnDestroy{
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private animeService: AnimeService
+    private animeService: AnimeService,
+    private videoPlayerService: VideoPlayerService,
+    private settingsService: SettingsService
   ) {
   }
 
 
   ngOnInit(): void { 
+    this.getCurrentType();
     this.paramsChangedSub$ = this.activatedRoute.params.subscribe((params) => {
       this.getInformation();
     });
@@ -45,11 +50,16 @@ export class LibraryComponent implements OnInit, OnDestroy{
     let routeParams: any = this.activatedRoute.snapshot.params;
     this.title = `${routeData.title} ${ANIMES_INFO[routeParams.anime].name}`;
     this.data = await this.animeService.getAnimeData(routeParams.anime, routeConfigPath).toPromise().catch((err) => console.log(err));
+    this.videoPlayerService.setVideoList(this.data);
     this.loaded = true;
   }
 
   changeTypeList(event: number){
     this.typeList = event;
+  }
+
+  getCurrentType(){
+    this.typeList = this.settingsService.getType();
   }
 
   changeFilterText(event: string){

@@ -1,4 +1,5 @@
 import { ChapterObject } from './interfaces/chapter-object.interface';
+import { CHAPTER_OBJECT_TYPES } from '../constants/general.constants';
 export class Movie implements ChapterObject{
     
     constructor(
@@ -19,5 +20,9 @@ export class Movie implements ChapterObject{
 
     getInformation(): string{
         return `CÓDIGO: ${this.code}`
+    }
+
+    getType(): string{
+        return CHAPTER_OBJECT_TYPES.movie;
     }
 }

@@ -25,7 +25,7 @@ export class PagesComponent implements OnInit, OnDestroy {
     this.sidebarService.changeModeSideBar();
   }
 
-  test(){
+  clickOutMobile(){
     this.sidebarService.clickOutsideMobile();
   }
 

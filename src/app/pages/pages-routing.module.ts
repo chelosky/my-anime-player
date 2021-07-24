@@ -1,14 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from "@angular/router";
-
-/**
- * COMPONENTES
- */
 import { PagesComponent } from './pages.component';
-import { HOME_ROUTES } from './home/home.routes';
-import { INFORMATION_ROUTES } from './information/information.routes';
-import { FAVORITES_ROUTES } from './favorites/favorites.routes';
-import { LIBRARY_ROUTES } from './library/library.routes';
 
 const routes: Routes = [
     {
@@ -17,19 +9,23 @@ const routes: Routes = [
         children: [
           {
             path: 'favorites',
-            children: FAVORITES_ROUTES
+            loadChildren: () => import('./favorites/favorites.module').then((m) => m.FavoritesModule)
           },
           {
             path: 'information',
-            children: INFORMATION_ROUTES
+            loadChildren: () => import('./information/information.module').then((m) => m.InformationModule)
           },
           {
             path: 'library',
-            children: LIBRARY_ROUTES
+            loadChildren: () => import('./library/library.module').then((m) => m.LibraryModule)
+          },
+          {
+            path: 'settings',
+            loadChildren: () => import('./settings/settings.module').then((m) => m.SettingsModule)
           },
           {
             path: '',
-            children: HOME_ROUTES
+            loadChildren: () => import('./home/home.module').then((m) => m.HomeModule)
           }
         ]
     },

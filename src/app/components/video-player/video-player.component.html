@@ -2,6 +2,8 @@
 <div mat-dialog-content class="container-block">
     <mat-spinner *ngIf="!loaded"></mat-spinner>
     <vg-player *ngIf="loaded" (onPlayerReady)="onPlayerReady($event)">
+        <vg-overlay-play></vg-overlay-play>
+        <vg-buffering></vg-buffering>
         <vg-controls [vgAutohide]="true" [vgAutohideTime]="1.5">
             <vg-play-pause></vg-play-pause>
             <vg-playback-button></vg-playback-button>

@@ -1,0 +1,22 @@
+<app-title [title]="'Configuraciones'" ></app-title>
+
+<div class="main">
+    <div class="type-cont">
+        <label class="info">
+            Tipo de vista
+        </label>
+        <div class="btn-group">
+            <app-button-group *ngFor="let type of types" [item]="type" [disabled]="isCurrent(type.value)" (selectEvent)="changeType($event)"></app-button-group>
+        </div>
+    </div>
+    <div class="data-cont">
+        <label>
+            Borrar data
+        </label>
+        <div>
+            <button mat-icon-button color="warn" aria-label="Delete all data" (click)="deleteAllData()">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </div>
+</div>

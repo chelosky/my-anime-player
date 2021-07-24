@@ -10,4 +10,6 @@ export interface ChapterObject {
     season_name?: string;
 
     getInformation(): string;
+
+    getType(): string;
 }

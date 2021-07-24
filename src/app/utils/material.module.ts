@@ -31,6 +31,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatToolbarModule,
     MatTooltipModule,
     MatStepperModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    DragDropModule
   ]
 })
 export class MaterialModule { }

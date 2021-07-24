@@ -21,6 +21,7 @@ import { ChapterItemListComponent } from './chapter-item-list/chapter-item-list.
 import { ChapterItemGridComponent } from './chapter-item-grid/chapter-item-grid.component';
 import { RibbonCornerComponent } from './ribbon-corner/ribbon-corner.component';
 import { SwitchComponent } from './switch/switch.component';
+import { ButtonGroupComponent } from './button-group/button-group.component';
 
 @NgModule({
   declarations: [
@@ -35,13 +36,15 @@ import { SwitchComponent } from './switch/switch.component';
     ChapterItemListComponent,
     ChapterItemGridComponent,
     RibbonCornerComponent,
-    SwitchComponent
+    SwitchComponent,
+    ButtonGroupComponent
   ],
   exports: [
     LoadingComponent,
     TitleChaptersComponent,
     ChaptersContainerComponent,
-    SearchComponent
+    SearchComponent,
+    ButtonGroupComponent
   ],
   imports: [
     CommonModule,

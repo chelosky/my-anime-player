@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit , Output} from '@angular/core';
 import { CHAPTER_GRID_TYPE, CHAPTER_LIST_TYPE } from 'src/app/constants/general.constants';
+import { ButtonGroup } from '../../models/interfaces/button-group.interface';
+import { BUTTON_TYPES } from '../../constants/general.constants';
 
 @Component({
   selector: 'app-title-chapters',
@@ -8,18 +10,7 @@ import { CHAPTER_GRID_TYPE, CHAPTER_LIST_TYPE } from 'src/app/constants/general.
 })
 export class TitleChaptersComponent implements OnInit {
 
-  types: any[] = [
-    {
-      icon: 'grid_view',
-      class: 'md-left',
-      value: CHAPTER_GRID_TYPE
-    },
-    {
-      icon: 'list',
-      class: 'md-right',
-      value: CHAPTER_LIST_TYPE
-    }
-  ];
+  types: ButtonGroup[] = BUTTON_TYPES;
 
   @Input() currentType: number = CHAPTER_GRID_TYPE;
   @Input() title: string;

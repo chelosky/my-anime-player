@@ -8,4 +8,5 @@ export interface Favorite{
     season?: number;
     season_name?: string;
     create_at?: string;
+    type?: string;
 }

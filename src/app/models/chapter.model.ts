@@ -1,4 +1,5 @@
 import { ChapterObject } from "./interfaces/chapter-object.interface";
+import { CHAPTER_OBJECT_TYPES } from '../constants/general.constants';
 
 export class Chapter implements ChapterObject{
 
@@ -24,5 +25,9 @@ export class Chapter implements ChapterObject{
 
     getInformation(): string{
         return `EP: ${this.code} - TEMP: ${this.season}`
+    }
+
+    getType(): string{
+        return CHAPTER_OBJECT_TYPES.chapter;
     }
 }

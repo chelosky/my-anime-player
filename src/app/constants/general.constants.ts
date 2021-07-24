@@ -1,4 +1,7 @@
 import { CustomSvgIcon } from '../models/interfaces/custom-svg-icon.interface';
+import { ButtonGroup } from '../models/interfaces/button-group.interface';
+
+export const APP_NAME = 'MY ANIME LIST';
 
 export const API = 'http://192.241.138.102:1337/'
 
@@ -64,3 +67,23 @@ export const SIDEBAR_MODE: any = {
     over: 'over',
     push: 'push'
 }
+
+// TYPE CHAPTER OBJECT
+export const CHAPTER_OBJECT_TYPES: any = {
+    ova: 'ova',
+    movie: 'movie',
+    chapter: 'chapter'
+}
+
+export const BUTTON_TYPES: ButtonGroup[] = [
+    {
+      icon: 'grid_view',
+      class: 'md-left',
+      value: CHAPTER_GRID_TYPE
+    },
+    {
+      icon: 'list',
+      class: 'md-right',
+      value: CHAPTER_LIST_TYPE
+    }
+];
