@@ -42,6 +42,7 @@ export class ChapterItemComponent implements OnInit, OnDestroy{
   play(){
     const dialogRef = this.dialog.open(VideoPlayerComponent,{
       panelClass: 'my-class',
+      disableClose: true,
       data: {
         item: this.item,
         favorite: this.favorite

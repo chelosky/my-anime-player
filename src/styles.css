@@ -17,6 +17,17 @@ hr {
 /*
 DIALOG VIDEO PLAYER
 */
+.my-class .mat-dialog-title{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.my-class .mat-dialog-title h2{
+  margin: auto;
+  text-align: center;
+}
+
 .my-class .mat-dialog-container{
   width: 600px;
   border-radius: 10px;

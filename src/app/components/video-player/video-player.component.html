@@ -1,4 +1,10 @@
-<h2 mat-dialog-title class="text-center">{{data.item.name | cleanChapterName: data.item.anime}}</h2>
+<div mat-dialog-title>
+    <h2>{{data.item.name | cleanChapterName: data.item.anime}}</h2>
+    <button mat-icon-button aria-label="close dialog" mat-dialog-close class="close-button">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
 <div mat-dialog-content class="container-block">
     <mat-spinner *ngIf="!loaded"></mat-spinner>
     <vg-player *ngIf="loaded" (onPlayerReady)="onPlayerReady($event)">
@@ -28,6 +34,7 @@
         </video>
     </vg-player>
 </div>
+
 <div mat-dialog-actions class="btn-final">  
     <button mat-icon-button [class.hide-btn]="!previous" (click)="goPrevious()">
         <mat-icon>keyboard_arrow_left</mat-icon>
