@@ -3,12 +3,10 @@ import { CommonModule } from '@angular/common';
 import { FilterChaptersPipe } from './filter-chapters.pipe';
 import { CleanChapterNamePipe } from './clean-chapter-name.pipe';
 
-
-
 @NgModule({
   declarations: [
     FilterChaptersPipe,
-    CleanChapterNamePipe
+    CleanChapterNamePipe,
   ],
   exports: [
     FilterChaptersPipe,

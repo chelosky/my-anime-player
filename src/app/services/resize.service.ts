@@ -9,6 +9,10 @@ export class ResizeService {
   currentSize: number | string = 0;
   private currentSize$: Subject<number|string> = new Subject<number|string>();
 
+  getSubject(): Subject<number|string>{
+    return this.currentSize$;
+  }
+
   getSize(): Observable<number|string> {
     return this.currentSize$.asObservable();
   }

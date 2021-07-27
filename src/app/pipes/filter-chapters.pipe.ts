@@ -6,7 +6,7 @@ import { ChapterObject } from '../models/interfaces/chapter-object.interface';
 })
 export class FilterChaptersPipe implements PipeTransform {
 
-  transform(list: ChapterObject[], filter: string, props: string[]): unknown {
+  transform(list: ChapterObject[], filter: string, props: string[]): ChapterObject[] {
     if(!filter || filter === '') return list;
     return list.filter((item: ChapterObject) => {
       for (const prop of props) {

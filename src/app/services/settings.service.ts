@@ -17,8 +17,7 @@ export class SettingsService {
   }
 
   private initCurrent(){
-    this.currentType = this.storageService.retrieve(VIEW_TYPE_KEY) || CHAPTER_GRID_TYPE;
-    console.log('XE', this.currentType);
+    this.currentType = this.storageService.retrieve(VIEW_TYPE_KEY);
   }
 
   setType(value: number): void{

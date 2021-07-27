@@ -10,7 +10,7 @@ import { Subject } from 'rxjs';
 })
 export class WatchedService {
 
-  watchedChapters: WatchedChapter[];
+  private watchedChapters: WatchedChapter[];
   private handleWatched$: Subject<void> = new Subject<void>();
 
   constructor(
@@ -32,6 +32,14 @@ export class WatchedService {
     return this.watchedChapters.findIndex((item: WatchedChapter) => item.code == newValue.code && item.anime == newValue.anime) != -1;
   }
 
+  getWatched(){
+    return this.watchedChapters;
+  }
+
+  getSubject(){
+    return this.handleWatched$;
+  }
+
   getHandle(){
     return this.handleWatched$.asObservable();
   }
@@ -51,6 +59,11 @@ export class WatchedService {
     const currentIndex: number = this.watchedChapters.findIndex((watched: WatchedChapter) => watched.code == item.code && watched.anime == item.anime);
     if(currentIndex == -1) return;
     this.watchedChapters.splice(currentIndex, 1);
+    this.setInformation();
+  }
+
+  clearWatched(): void{
+    this.watchedChapters = [];
     this.setInformation();
   }
 }

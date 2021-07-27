@@ -18,6 +18,7 @@ export class PagesComponent implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
+    this.changeModeSideBar();
     this.subResize$ = this.resizeService.getSize().subscribe((res) => this.changeModeSideBar());
   }
 

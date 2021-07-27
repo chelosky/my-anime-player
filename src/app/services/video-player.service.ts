@@ -8,16 +8,13 @@ export class VideoPlayerService {
 
   private videoList: ChapterObject[] = [];
 
-  constructor(
-  ) { }
-
   private getCurrentIndex(current: ChapterObject){
     return this.videoList.findIndex((item: ChapterObject) => current.code == item.code && current.anime == item.anime);
   }
 
   private getNext(current: ChapterObject): ChapterObject{
     const currentIndex: number = this.getCurrentIndex(current);
-    if(currentIndex != -1 && currentIndex < this.videoList.length){
+    if(currentIndex != -1 && currentIndex + 1 < this.videoList.length){
       return this.videoList[currentIndex + 1];
     }
     return null;
@@ -25,7 +22,7 @@ export class VideoPlayerService {
 
   private getPrevious(current: ChapterObject){
     const currentIndex: number = this.getCurrentIndex(current);
-    if(currentIndex != -1 && currentIndex > 0){
+    if(currentIndex != -1 && currentIndex - 1 >= 0){
       return this.videoList[currentIndex - 1];
     }
     return null;
@@ -33,6 +30,10 @@ export class VideoPlayerService {
 
   setVideoList(list: ChapterObject[]){
     this.videoList = list;
+  }
+
+  getVideoList():ChapterObject[]{
+    return this.videoList;
   }
 
   getNextPrevious(current: ChapterObject){

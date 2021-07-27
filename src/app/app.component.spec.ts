@@ -1,35 +1,45 @@
-import { TestBed, async } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { TestBed, async, fakeAsync, tick } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { ResizeService } from './services/resize.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
-describe('AppComponent', () => {
+describe('Component: App', () => {
+  let component: AppComponent;
+  let resizeSpy: jasmine.SpyObj<ResizeService>;
+
   beforeEach(async(() => {
+    const spy = jasmine.createSpyObj('ResizeService', ['setSize', 'getSize']);
     TestBed.configureTestingModule({
-      imports: [
+      imports:[
         RouterTestingModule
+      ],
+      providers: [
+        { provide: ResizeService, useValue: spy } 
       ],
       declarations: [
         AppComponent
       ],
     }).compileComponents();
+    const fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    resizeSpy = TestBed.inject(ResizeService) as jasmine.SpyObj<ResizeService>;
   }));
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+  it('should create the app component', () => {
+    expect(component).toBeTruthy();
   });
 
-  it(`should have as title 'anime-player'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('anime-player');
-  });
+  it('#ngOnInit should execute resize screen', fakeAsync(() => {
+    const spy = spyOn(component, 'onResize');
+    component.ngOnInit();
+    tick(500)
+    expect(spy).toHaveBeenCalled();
+  }));
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('anime-player app is running!');
-  });
+  it('#onResize should save a specific size screen', () => {
+    const spyOnResize = spyOn(component, 'onResize');
+    window.dispatchEvent(new Event('resize'));
+    expect(spyOnResize).toHaveBeenCalled();
+  })
+
 });

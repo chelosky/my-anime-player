@@ -10,7 +10,7 @@ export class SidebarService {
 
   openSideBar: boolean = true;
 
-  modeSideBar: string = SIDEBAR_MODE.side;
+  modeSideBar: string = SIDEBAR_MODE.over;
 
   private menu: NavItem[] = [
     {

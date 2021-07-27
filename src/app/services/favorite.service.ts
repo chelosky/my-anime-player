@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { StorageService } from './storage.service';
 import { Favorite } from '../models/interfaces/favorite.interface';
-import { WatchedChapter } from '../models/interfaces/watched-chapter.interface';
-import { WATCHED_KEY, FAVORITE_KEY, FAVORITE_TYPES } from '../constants/storage.constants';
+import { FAVORITE_KEY, FAVORITE_TYPES } from '../constants/storage.constants';
 import { ChapterObject } from '../models/interfaces/chapter-object.interface';
 import { DatePipe } from '@angular/common';
 import { Subject } from 'rxjs';
@@ -12,7 +11,7 @@ import { Subject } from 'rxjs';
 })
 export class FavoriteService {
 
-  favorites: Favorite[];
+  private favorites: Favorite[];
   private handleFavorite$: Subject<void> = new Subject<void>();
 
   constructor(
@@ -48,6 +47,10 @@ export class FavoriteService {
     return this.favorites.map((item: Favorite) => { return FAVORITE_TYPES[item.type].generate(item); });
   }
 
+  getSubject(){
+    return this.handleFavorite$;
+  }
+
   getHandle(){
     return this.handleFavorite$.asObservable();
   }
@@ -70,4 +73,8 @@ export class FavoriteService {
     this.setInformation();
   }
 
+  clearFavorites(): void{
+    this.favorites = [];
+    this.setInformation();
+  }
 }
