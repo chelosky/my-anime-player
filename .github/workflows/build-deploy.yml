@@ -6,6 +6,7 @@ on:
       - main
 jobs:
   build:
+    name: Build and Test
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -23,17 +24,31 @@ jobs:
       run: |
         npm install
         npm run-script deploy
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
     - name: Test
       run: |
           npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+    - name: Archive build
+      if: success()
+      uses: actions/upload-artifact@v1
+      with:
+        name: deploy_dist
+        path: dist
+    - name: Archive code coverage result
+      if: success()
+      uses: actions/upload-artifact@v1
+      with:
+        name: deploy_coverage
+        path: coverage
   deploy:
-    needs: test
+    needs: build
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Download build
+      uses: actions/download-artifact@v1
+      with:
+        name: deploy_dist
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
