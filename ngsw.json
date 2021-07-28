@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1627440148791,
+  "timestamp": 1627493990886,
   "index": "/my-anime-player/index.html",
   "assetGroups": [
     {
@@ -8,8 +8,8 @@
       "installMode": "prefetch",
       "updateMode": "prefetch",
       "urls": [
-        "/my-anime-player/1-es2015.7feb9e93f99cf5a63a95.js",
-        "/my-anime-player/1-es5.7feb9e93f99cf5a63a95.js",
+        "/my-anime-player/1-es2015.2813b83ab7f8fd196adc.js",
+        "/my-anime-player/1-es5.2813b83ab7f8fd196adc.js",
         "/my-anime-player/10-es2015.4cc3c17ff7fedcd435b6.js",
         "/my-anime-player/10-es5.4cc3c17ff7fedcd435b6.js",
         "/my-anime-player/6-es2015.7dc8eb661e4d51ed9d27.js",
@@ -27,9 +27,9 @@
         "/my-anime-player/manifest.webmanifest",
         "/my-anime-player/polyfills-es2015.1c036d218568a752e64f.js",
         "/my-anime-player/polyfills-es5.4044e9e97102e0a74ed1.js",
-        "/my-anime-player/runtime-es2015.4670a7e2ed00c3b1a43c.js",
-        "/my-anime-player/runtime-es5.4670a7e2ed00c3b1a43c.js",
-        "/my-anime-player/styles.f88db60977d49606e407.css"
+        "/my-anime-player/runtime-es2015.3583ed2f9bc39e5fb06e.js",
+        "/my-anime-player/runtime-es5.3583ed2f9bc39e5fb06e.js",
+        "/my-anime-player/styles.7f5ffe3feabfac5702e0.css"
       ],
       "patterns": []
     },
@@ -60,8 +60,8 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/my-anime-player/1-es2015.7feb9e93f99cf5a63a95.js": "e2f070752fc7e9f3dee7805cd434d53e51743004",
-    "/my-anime-player/1-es5.7feb9e93f99cf5a63a95.js": "c79d7fda6b98719f6f1f1d198253fa8a4a4e86f6",
+    "/my-anime-player/1-es2015.2813b83ab7f8fd196adc.js": "e69ba2a4d2c3eff37d46f2ecb7b4c570e1ebc67a",
+    "/my-anime-player/1-es5.2813b83ab7f8fd196adc.js": "8cb0dc3a9547df109086de2b1c08b592659681af",
     "/my-anime-player/10-es2015.4cc3c17ff7fedcd435b6.js": "97762c00bc8509c800e322558980df54315fc14b",
     "/my-anime-player/10-es5.4cc3c17ff7fedcd435b6.js": "257f821e57f869bc88360f1c0e473df0c6435dda",
     "/my-anime-player/6-es2015.7dc8eb661e4d51ed9d27.js": "8d42e93bc99334b42f706325549033f3173bfe03",
@@ -85,15 +85,15 @@
     "/my-anime-player/assets/svg/goku.svg": "ad72af7034dbc219a62277c5a9d4893f6d5ecce0",
     "/my-anime-player/assets/svg/ranma.svg": "df837b98b8855d2a45f6cdb594450125b1d41443",
     "/my-anime-player/favicon.ico": "18bfe7039e6edf2c0b66bb251ee477dfa34f95fa",
-    "/my-anime-player/index.html": "0e70f128c02f6f2f42e74caafbbd7e73a500e5f9",
+    "/my-anime-player/index.html": "7c4cb199d926ae1577f1da129400e4a8406629cb",
     "/my-anime-player/main-es2015.c6d28d348b4f2a72f674.js": "ef56d2e547f692b6112f5627856d92e1d6bed8ea",
     "/my-anime-player/main-es5.c6d28d348b4f2a72f674.js": "e45cbd1ad25e46ff14c53290cc99b256740a920b",
     "/my-anime-player/manifest.webmanifest": "be2b7adcdbec9183714964ce798ee8057695a254",
     "/my-anime-player/polyfills-es2015.1c036d218568a752e64f.js": "15a133b6cbb459a66fcd2e75f6aa25782e5d79c4",
     "/my-anime-player/polyfills-es5.4044e9e97102e0a74ed1.js": "bbbd7232e325f39b473685b8b77478cfb29b8c2d",
-    "/my-anime-player/runtime-es2015.4670a7e2ed00c3b1a43c.js": "8f8547e726be37fcfa902a9221f4c899f45a6bc8",
-    "/my-anime-player/runtime-es5.4670a7e2ed00c3b1a43c.js": "ce2758537c9592b14698082576afc2ded5fdaea6",
-    "/my-anime-player/styles.f88db60977d49606e407.css": "7a05dcd606c235c517711ec951238f86af3210bb",
+    "/my-anime-player/runtime-es2015.3583ed2f9bc39e5fb06e.js": "c543097c1383779e5c4323e9c7c04408277753e0",
+    "/my-anime-player/runtime-es5.3583ed2f9bc39e5fb06e.js": "12299bb17e5b31c564b9238e1f49d7d4964d8d83",
+    "/my-anime-player/styles.7f5ffe3feabfac5702e0.css": "139088fd334a2889aa31bdb08d59876a813136f9",
     "/my-anime-player/videogular.6cbfb587b23dba448c1f.svg": "5f425e191f26e38cc784ef48eafebdb6d2b070db",
     "/my-anime-player/videogular.7b2cf1a3b74373b9bfdf.ttf": "bb67bb29f92837ac5e2ea0bfd9fa689ad15fb887",
     "/my-anime-player/videogular.cb94a8eaf88cdf576801.eot": "5c324417e11c52e00f8293fa2a120fe3f63f5d25",
