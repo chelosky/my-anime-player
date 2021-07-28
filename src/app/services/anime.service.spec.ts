@@ -55,9 +55,7 @@ describe('Service: Anime', () => {
         const responseDummy = new HttpResponse({
             status: 200,
             body: {
-                data: {
-                    ...BODY_RESPONSE_ANIME
-                }
+                ...BODY_RESPONSE_ANIME
             }
         });
         dataSpy.get.and.returnValue(of(responseDummy));
