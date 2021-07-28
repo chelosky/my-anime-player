@@ -10,7 +10,7 @@ export const ANIMES_INFO = {
         name: 'Ranma ½',
         endpoint: 'ranma/data',
         get: (data: any) => {
-            return data['body']['data'];
+            return data['body'];
         },
         validName: (text: string): string => {
             //  001-Un-extraño-viene-de-chica.mp4 => [ 001-Un-extraño-viene-de-chica , mp4 ] 
