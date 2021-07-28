@@ -17,6 +17,19 @@ hr {
 /*
 DIALOG VIDEO PLAYER
 */
+.my-class .pip {
+  width: 50px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-class .pip span{
+  left: 10px;
+	cursor: pointer;
+}
+
 .my-class .mat-dialog-title{
   display: flex;
   flex-direction: row;

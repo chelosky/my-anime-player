@@ -1,4 +1,4 @@
-import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, Inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { AnimeService } from '../../services/anime.service';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { DialogVideoPlayer } from '../../models/interfaces/dialog-video-player';
@@ -10,6 +10,10 @@ import { VideoPlayerService } from '../../services/video-player.service';
 import { ChapterObject } from '../../models/interfaces/chapter-object.interface';
 import { Subscription } from 'rxjs';
 
+interface VideoElement extends HTMLVideoElement{
+  requestPictureInPicture(): any;
+}
+
 @Component({
   selector: 'app-video-player',
   templateUrl: './video-player.component.html',
@@ -19,12 +23,18 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
 
   urlVideo = "";
   api: VgApiService;
+
   loaded: boolean = false;
   favorite: boolean = false;
+  
   next: ChapterObject;
   previous: ChapterObject;
 
   playSub$: Subscription;
+
+  @ViewChild("media") videoElement: ElementRef;
+  video: VideoElement;
+  pipModeOn: boolean = false;
 
   constructor(
     private animeService: AnimeService,
@@ -40,6 +50,8 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
   }
 
   async getInformation(){
+    this.exitPictureInPicture();
+    this.video = null;
     this.loaded = false;
     this.getCurrentState();
     this.getNextPreviousData();
@@ -59,6 +71,32 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
     if(this.api){
       this.api.play();
       this.watchedService.setWatched(this.data.item);
+      this.video = this.videoElement.nativeElement;
+      this.video.addEventListener("leavepictureinpicture", () => {
+        this.pipModeOn = false;
+      });
+    }
+  }
+
+  handlePip(){
+    if(this.pipModeOn){
+      this.exitPictureInPicture();
+    }else{
+      this.pictureInPicture();
+    }
+  }
+
+  async pictureInPicture(){
+    if(this.video && !this.pipModeOn){
+      await this.video.requestPictureInPicture();
+      this.pipModeOn = true;
+    }
+  }
+
+  async exitPictureInPicture(){
+    if(this.video && this.pipModeOn){
+      (document as any).exitPictureInPicture();
+      this.pipModeOn = false;
     }
   }
 
@@ -97,5 +135,6 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     if(this.playSub$) this.playSub$.unsubscribe();
+    this.exitPictureInPicture();
   }
 }

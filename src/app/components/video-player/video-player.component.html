@@ -1,6 +1,6 @@
 <div mat-dialog-title>
     <h2>{{data.item.name | cleanChapterName: data.item.anime}}</h2>
-    <button mat-icon-button aria-label="close dialog" mat-dialog-close class="close-button">
+    <button mat-icon-button aria-label="close dialog" mat-dialog-close>
         <mat-icon>close</mat-icon>
     </button>
 </div>
@@ -25,11 +25,15 @@
       
             <vg-mute></vg-mute>
             <vg-volume></vg-volume>
-      
+            <div *ngIf="video" class="pip">
+                <span class="material-icons" (click)="handlePip()">
+                    {{ pipModeOn ? 'flip_to_back': 'picture_in_picture_alt'}}
+                </span>
+            </div>
             <vg-fullscreen></vg-fullscreen>
         </vg-controls>
       
-        <video #media id="singleVideo" [vgMedia]="media" preload="auto" crossorigin>
+        <video #media id="singleVideo" [vgMedia]="media" preload="auto" crossorigin >
             <source [src]="urlVideo" type="video/mp4">
         </video>
     </vg-player>
