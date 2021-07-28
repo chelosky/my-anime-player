@@ -91,6 +91,9 @@ MIT
 @angular/router
 MIT
 
+@angular/service-worker
+MIT
+
 @videogular/ngx-videogular
 MIT
 MIT License
