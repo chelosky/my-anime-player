@@ -35,6 +35,7 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
   @ViewChild("media") videoElement: ElementRef;
   video: VideoElement;
   pipModeOn: boolean = false;
+  wasInPipMode: boolean = false;
 
   constructor(
     private animeService: AnimeService,
@@ -74,6 +75,12 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
       this.video = this.videoElement.nativeElement;
       this.video.addEventListener("leavepictureinpicture", () => {
         this.pipModeOn = false;
+      });
+      this.video.addEventListener("ended", () => { 
+        if(this.next){
+          this.wasInPipMode = this.pipModeOn;
+          this.goNext();
+        }
       });
     }
   }
@@ -122,15 +129,19 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
   }
 
   goNext(){
-    console.log('NEXT');
-    this.data.item = this.next;
-    this.getInformation();
+    if(this.next){
+      console.log('NEXT');
+      this.data.item = this.next;
+      this.getInformation();
+    }
   }
   
   goPrevious(){
-    console.log('PREVIOUS');
-    this.data.item = this.previous;
-    this.getInformation();
+    if(this.previous){
+      console.log('PREVIOUS');
+      this.data.item = this.previous;
+      this.getInformation();
+    }
   }
 
   ngOnDestroy(): void {
