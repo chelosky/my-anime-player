@@ -2,7 +2,11 @@
 
 # My Anime List
 
+
 My Anime List is a web application developed solely for educational and self-study purposes. This app takes all the hassle and effort out of finding many of my favorite anime. Allowing to see all these animes in a single click.
+
+<a href="https://chelosky.github.io/my-anime-player/#/">GitHub Page</a>
+
 
 <div  style="width:auto; margin:0 auto;">
   <img src="https://user-images.githubusercontent.com/47399699/127605309-9f42600e-85c4-4015-8a54-562aafd5882a.png"  /> 
