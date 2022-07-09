@@ -1,6 +1,6 @@
 <img align="left" width="80" height="80" src="https://user-images.githubusercontent.com/47399699/127604988-54ab189d-e182-4a87-9f36-faf2c85ce3ec.png" alt="Project app icon">
 
-# My Anime List xd
+# My Anime List xd 2
 
 
 My Anime List is a web application developed solely for educational and self-study purposes. This app takes all the hassle and effort out of finding many of my favorite anime. Allowing to see all these animes in a single click.
