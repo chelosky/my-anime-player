@@ -55,3 +55,13 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: gh-pages
         FOLDER: deploy_dist/anime-player
+    - name: Send push notification
+      id: pushnotifier
+      uses: bluefirex/pushnotifier-send-action@v1.0.2
+      with:
+        api-token: ${{ secrets.PUSHNOTIFIER_API_TOKEN }}
+        app-token: ${{ secrets.PUSHNOTIFIER_APP_TOKEN }}
+        package: ${{ secrets.PUSHNOTIFIER_API_PACKAGE }}
+        device-ids: gLP6
+        notification: Workflow completed yay
+        url: https://github.com/${{ github.repository }}
